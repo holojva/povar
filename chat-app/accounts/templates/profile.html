@@ -1,0 +1,7 @@
+hello
+{% extends "base.html" %}
+{% block content %}
+{{ object }}
+{{ profile }}
+<p>Всего сообщений: {{chat_data.count}}</p>
+{% endblock %}

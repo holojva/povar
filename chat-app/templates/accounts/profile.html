@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if profile.is_authenticated %}
+{{ profile.username }}
+{{ profile }}
+<p>Всего сообщений: {{chat.count}}</p>
+Сообщения:
+{% for i in chat %}
+<div style="margin:8px; color:white;background-color: blue; padding: 20px; margin:0px; width: 50vw;">
+{{i.user}} ||
+{{i.text}} ||
+{{i.date}} ||
+</div>
+<br><br>
+{%endfor%}
+Всего подписчиков: {{ppl}}<br>
+Юзернеймы подписчиков
+{%for i in subslist%}
+<mark>{{i.self_user}}</mark>
+{%endfor%}
+{{ sub.text }}
+{{ sub.name }}
+{% endif %}
+{% endblock %}

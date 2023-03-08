@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%block content%}
+suiii
+<div style="margin:8px; color:white;background-color: black;">
+chat for ppl: 
+<form action="/send/" method="post">
+    {{ form.as_table }}
+    {% csrf_token %}
+    <input type="submit" value="Ha, and yours, hahahahahaha">
+</form>
+</div>
+amongus
+{% for i in msg %}
+<div style="margin:8px; color:white;background-color: blue; padding: 20px; margin:0px; width: 50vw;">
+<!-- {{j.other_user}}
+{{i.user}} -->
+
+<mark>{{i.user.username}}</mark> ||
+{{i.text}} ||
+{{i.date}}
+<form action="subscribe/{{i.user.id}}/" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Subscribe">
+</form>
+</div>
+<br><br>
+{%endfor%}
+
+{%endblock%}

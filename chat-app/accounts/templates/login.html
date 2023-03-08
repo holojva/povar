@@ -1,0 +1,25 @@
+{% extends "base.html"%}
+
+
+{%block content%}
+{% if form.errors %}
+<p>Your username and password didnt match. GO AWAY, HACKER</p>
+{%endif%}
+<h2>Login</h2>
+
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+    </table>
+    <!-- {{ form.as_p }} -->
+    <button type="submit">login</button>
+</form>
+{% endblock content %}
